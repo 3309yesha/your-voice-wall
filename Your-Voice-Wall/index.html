@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Voice Wall | School Carnival</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <a href="#" class="logo">
+            <span class="logo-icon">💬</span>
+            Your Voice Wall
+        </a>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#wall">Review Wall</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <a href="#submit" class="nav-button">Share Your Voice ✨</a>
+    </header>
+
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+
+            <div class="hero-content">
+                <span class="tag">🎉 SCHOOL CARNIVAL 2026</span>
+
+                <h1>
+                    Every Voice<br>
+                    <span>Deserves a Wall.</span>
+                </h1>
+
+                <p>
+                    Share your experience, spread happiness,
+                    and make our carnival unforgettable!
+                    Your thoughts matter to us.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#submit" class="primary-button">
+                        Write a Review ✍️
+                    </a>
+
+                    <a href="#wall" class="secondary-button">
+                        Explore Reviews →
+                    </a>
+                </div>
+
+                <div class="counter">
+                    <span>💌</span>
+                    <div>
+                        <strong id="reviewCount">0+</strong>
+                        <small>Voices shared</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decorative Sticky Notes -->
+            <div class="notes-area">
+                <div class="sticky-note pink">
+                    "Best day ever! 💗"
+                </div>
+
+                <div class="sticky-note yellow">
+                    "So much fun! 🎉"
+                </div>
+
+                <div class="sticky-note blue">
+                    "Amazing creativity! ✨"
+                </div>
+
+                <div class="sticky-note purple">
+                    "Loved every moment! 💜"
+                </div>
+            </div>
+
+        </section>
+
+        <!-- About Section -->
+        <section class="about" id="about">
+            <span class="tag">YOUR THOUGHTS MATTER</span>
+            <h2>Make Your Voice Count!</h2>
+
+            <p>
+                This is your space to share your favourite
+                carnival moments, feedback and happy memories.
+                Leave a little note and make someone's day!
+            </p>
+        </section>
+
+        <!-- Review Submission Section -->
+        <section class="submit-section" id="submit">
+
+            <span class="tag">💌 YOUR VOICE MATTERS</span>
+
+            <h2>Leave Your Little Note!</h2>
+
+            <p>
+                Share your carnival experience with us.
+                Your review will be anonymous.
+            </p>
+
+            <form id="reviewForm">
+
+                <label for="reviewText">Write your review</label>
+
+                <textarea
+                    id="reviewText"
+                    maxlength="250"
+                    placeholder="What did you love about our carnival? 💖"
+                    required
+                ></textarea>
+
+                <small id="characterCount">0 / 250 characters</small>
+
+                <h3>Choose your sticky note colour</h3>
+
+                <div class="colour-options">
+
+                    <label>
+                        <input type="radio" name="noteColour" value="pink" checked>
+                        <span class="colour pink-choice">Pink</span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="noteColour" value="yellow">
+                        <span class="colour yellow-choice">Yellow</span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="noteColour" value="blue">
+                        <span class="colour blue-choice">Blue</span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="noteColour" value="purple">
+                        <span class="colour purple-choice">Purple</span>
+                    </label>
+
+                </div>
+
+                <h3>How was your experience?</h3>
+
+                <div class="emoji-options">
+                    <label><input type="radio" name="reaction" value="😍" checked> 😍</label>
+                    <label><input type="radio" name="reaction" value="🥰"> 🥰</label>
+                    <label><input type="radio" name="reaction" value="🎉"> 🎉</label>
+                    <label><input type="radio" name="reaction" value="🤩"> 🤩</label>
+                    <label><input type="radio" name="reaction" value="❤️"> ❤️</label>
+                </div>
+
+                <h3>Give us a star rating</h3>
+
+                <div class="rating-options">
+                    <label><input type="radio" name="rating" value="1"> ⭐</label>
+                    <label><input type="radio" name="rating" value="2"> ⭐⭐</label>
+                    <label><input type="radio" name="rating" value="3"> ⭐⭐⭐</label>
+                    <label><input type="radio" name="rating" value="4"> ⭐⭐⭐⭐</label>
+                    <label><input type="radio" name="rating" value="5" checked> ⭐⭐⭐⭐⭐</label>
+                </div>
+
+                <h3>Upload a carnival photo (optional)</h3>
+
+                <input
+                    type="file"
+                    id="reviewPhoto"
+                    accept="image/jpeg,image/png,image/webp"
+                >
+
+                <small>Maximum image size: 1 MB</small>
+
+                <div id="photoPreview"></div>
+
+                <button type="submit" class="primary-button">
+                    Submit My Review 💖
+                </button>
+
+            </form>
+
+            <p
+                id="successMessage"
+                class="success-message"
+                aria-live="polite"
+            ></p>
+
+        </section>
+
+        <!-- Public Review Wall -->
+        <section class="wall-section" id="wall">
+
+            <span class="tag">COMMUNITY LOVE</span>
+            <h2>Our Happy Wall 💖</h2>
+
+            <!-- Approved reviews will appear here -->
+            <div id="reviewWall" class="review-wall">
+                <p>Loading happy memories... 💖</p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <h3>Your Voice Wall 💬</h3>
+        <p>Made with ❤️ for School Carnival 2026</p>
+        <small>Every voice matters. Every memory counts.</small>
+    </footer>
+
+    <!-- Supabase Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Supabase Configuration -->
+    <script src="supabase-config.js"></script>
+
+    <!-- Website JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,824 @@
+/* =========================================
+   YOUR VOICE WALL - SCHOOL CARNIVAL 2026
+   Modern Neon + Colourful Sticky Note Theme
+========================================= */
+
+/* BASIC SETTINGS */
+:root {
+    --bg: #101225;
+    --surface: #171a32;
+    --surface-light: #202442;
+    --pink: #ff70b7;
+    --purple: #a66cff;
+    --cyan: #65e5f5;
+    --yellow: #ffe783;
+    --text: #ffffff;
+    --muted: #c4c5d9;
+    --border: #383b59;
+    --success: #75efb3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+    background: var(--pink);
+    color: white;
+}
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px 7%;
+    background: rgba(23, 26, 50, 0.96);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(15px);
+    flex-wrap: wrap;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 23px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.logo-icon {
+    margin-right: 8px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: #d4d5e8;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--pink);
+}
+
+.nav-button,
+.primary-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff4fa3, #a66cff);
+    color: white;
+    text-decoration: none;
+    padding: 13px 23px;
+    border-radius: 30px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.nav-button:hover,
+.primary-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 79, 163, 0.35);
+}
+
+/* =========================================
+   HERO SECTION
+========================================= */
+
+.hero {
+    min-height: 650px;
+    padding: 90px 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    flex-wrap: wrap;
+    background:
+        radial-gradient(circle at 80% 30%, #39305e 0%, transparent 35%),
+        radial-gradient(circle at 10% 90%, #282044 0%, transparent 35%),
+        var(--bg);
+}
+
+.hero-content {
+    max-width: 550px;
+    flex: 1 1 350px;
+}
+
+.tag {
+    display: inline-block;
+    color: #ff80bd;
+    background: #35203e;
+    padding: 10px 17px;
+    border-radius: 25px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 6vw, 68px);
+    line-height: 1.15;
+    margin: 25px 0;
+}
+
+.hero h1 span {
+    color: var(--pink);
+    text-shadow: 0 0 25px rgba(255, 112, 183, 0.25);
+}
+
+.hero-content > p {
+    color: var(--muted);
+    line-height: 1.9;
+    font-size: 16px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.secondary-button {
+    color: white;
+    text-decoration: none;
+    border: 1px solid #77758e;
+    padding: 13px 22px;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.secondary-button:hover {
+    background: #292d4b;
+    border-color: var(--pink);
+}
+
+/* REVIEW COUNTER */
+
+.counter {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 40px;
+}
+
+.counter > span {
+    font-size: 32px;
+}
+
+.counter strong,
+.counter small {
+    display: block;
+}
+
+.counter strong {
+    font-size: 24px;
+    color: var(--success);
+}
+
+.counter small {
+    color: #aaaec6;
+    margin-top: 4px;
+}
+
+/* =========================================
+   HERO DECORATIVE STICKY NOTES
+========================================= */
+
+.notes-area {
+    width: 440px;
+    max-width: 100%;
+    min-height: 380px;
+    position: relative;
+    flex: 0 1 440px;
+}
+
+.sticky-note {
+    width: 185px;
+    min-height: 145px;
+    padding: 25px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #292337;
+    font-weight: bold;
+    font-size: 17px;
+    box-shadow: 0 12px 30px #0005;
+    position: absolute;
+    border-radius: 3px;
+    transition: transform 0.3s;
+}
+
+.sticky-note:hover {
+    transform: rotate(0deg) scale(1.08);
+    z-index: 2;
+}
+
+.notes-area .pink {
+    background: #ff9ccf;
+    top: 10px;
+    left: 15px;
+    transform: rotate(-8deg);
+}
+
+.notes-area .yellow {
+    background: #ffe783;
+    top: 30px;
+    right: 10px;
+    transform: rotate(7deg);
+}
+
+.notes-area .blue {
+    background: #8be4f8;
+    bottom: 20px;
+    left: 20px;
+    transform: rotate(5deg);
+}
+
+.notes-area .purple {
+    background: #c8a7ff;
+    bottom: 10px;
+    right: 5px;
+    transform: rotate(-7deg);
+}
+
+/* =========================================
+   COMMON SECTIONS
+========================================= */
+
+.about,
+.submit-section,
+.wall-section {
+    text-align: center;
+    padding: 90px 8%;
+}
+
+.about h2,
+.submit-section h2,
+.wall-section h2 {
+    font-size: clamp(28px, 4vw, 40px);
+    margin: 20px 0;
+}
+
+.about p,
+.submit-section > p {
+    color: var(--muted);
+    line-height: 1.9;
+    max-width: 680px;
+    margin: 0 auto 28px;
+}
+
+.about {
+    background: #14172d;
+}
+
+/* =========================================
+   REVIEW WALL - MAIN GRID
+========================================= */
+
+.wall-section {
+    background:
+        radial-gradient(circle at 50% 0%, #29234c 0%, transparent 45%),
+        #171a32;
+    min-height: 500px;
+}
+
+.review-wall {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 28px;
+    width: 100%;
+    max-width: 1250px;
+    margin: 45px auto 0;
+    padding: 15px;
+    align-items: start;
+    justify-items: center;
+}
+
+.review-wall > p {
+    grid-column: 1 / -1;
+    color: var(--muted);
+    padding: 30px;
+}
+
+/* =========================================
+   DYNAMIC STICKY NOTES
+========================================= */
+
+.review-card {
+    position: relative;
+    width: 100%;
+    max-width: 260px;
+    min-height: 210px;
+    padding: 25px 20px;
+    color: #292337;
+    border-radius: 5px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+    overflow-wrap: anywhere;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.35s, box-shadow 0.35s;
+    animation: noteAppear 0.5s ease both;
+}
+
+/* Different note rotations */
+
+.review-card:nth-child(4n + 1) {
+    transform: rotate(-2deg);
+}
+
+.review-card:nth-child(4n + 2) {
+    transform: rotate(2deg);
+}
+
+.review-card:nth-child(4n + 3) {
+    transform: rotate(-1deg);
+}
+
+.review-card:nth-child(4n) {
+    transform: rotate(3deg);
+}
+
+.review-card:hover {
+    transform: rotate(0deg) translateY(-8px) scale(1.03);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.35);
+    z-index: 5;
+}
+
+.review-card.pink {
+    background: linear-gradient(145deg, #ffb2d9, #ff83bd);
+}
+
+.review-card.yellow {
+    background: linear-gradient(145deg, #fff1a7, #ffdf68);
+}
+
+.review-card.blue {
+    background: linear-gradient(145deg, #b2f1fa, #79dced);
+}
+
+.review-card.purple {
+    background: linear-gradient(145deg, #ddc8ff, #b993f7);
+}
+
+.review-card p {
+    color: #292337;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.review-card .review-rating {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* REVIEW PHOTOS */
+
+.review-card .review-photo {
+    display: block;
+    width: 100%;
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 8px;
+    border: 3px solid rgba(255,255,255,0.7);
+}
+
+/* NOTE APPEAR ANIMATION */
+
+@keyframes noteAppear {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* =========================================
+   REVIEW FORM
+========================================= */
+
+#reviewForm {
+    width: 100%;
+    max-width: 650px;
+    margin: 35px auto 0;
+    padding: 35px;
+    background: linear-gradient(145deg, #1b1e39, #202442);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    text-align: left;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+#reviewForm h3 {
+    margin: 27px 0 15px;
+    font-size: 17px;
+    color: #f5d7ec;
+}
+
+#reviewForm > label {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: bold;
+}
+
+#reviewText {
+    width: 100%;
+    min-height: 135px;
+    resize: vertical;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid #62627c;
+    background: #111429;
+    color: white;
+    font: inherit;
+    line-height: 1.6;
+}
+
+#reviewText::placeholder {
+    color: #8588a5;
+}
+
+#reviewText:focus {
+    outline: 2px solid var(--pink);
+    border-color: transparent;
+}
+
+#characterCount,
+#reviewForm small {
+    display: block;
+    color: #aaaec6;
+    margin-top: 9px;
+    font-size: 12px;
+}
+
+/* COLOUR OPTIONS */
+
+.colour-options,
+.emoji-options,
+.rating-options {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.colour-options label,
+.emoji-options label,
+.rating-options label {
+    cursor: pointer;
+}
+
+.colour-options input,
+.emoji-options input,
+.rating-options input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.colour {
+    display: inline-block;
+    padding: 11px 16px;
+    border-radius: 9px;
+    color: #252238;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.colour:hover {
+    transform: translateY(-3px);
+}
+
+.pink-choice {
+    background: #ff9ccf;
+}
+
+.yellow-choice {
+    background: #ffe783;
+}
+
+.blue-choice {
+    background: #8be4f8;
+}
+
+.purple-choice {
+    background: #c8a7ff;
+}
+
+.colour-options input:checked + .colour {
+    outline: 3px solid white;
+    outline-offset: 3px;
+}
+
+/* EMOJI AND RATING OPTIONS */
+
+.emoji-options label,
+.rating-options label {
+    padding: 10px;
+    background: #292d4b;
+    border-radius: 10px;
+    font-size: 17px;
+    transition: 0.2s;
+}
+
+.emoji-options label:hover,
+.rating-options label:hover {
+    background: #40304f;
+    transform: translateY(-2px);
+}
+
+.emoji-options label:has(input:checked),
+.rating-options label:has(input:checked) {
+    outline: 2px solid var(--pink);
+    background: #40304f;
+}
+
+/* PHOTO UPLOAD */
+
+#reviewPhoto {
+    width: 100%;
+    color: white;
+    margin-top: 10px;
+    padding: 12px;
+    background: #111429;
+    border: 1px dashed #77758e;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#photoPreview {
+    margin-top: 15px;
+}
+
+#photoPreview img {
+    max-width: 160px;
+    max-height: 130px;
+    object-fit: cover;
+    border: 3px solid var(--pink);
+    border-radius: 10px;
+}
+
+/* SUBMIT BUTTON */
+
+#reviewForm button {
+    margin-top: 30px;
+    width: 100%;
+    font-size: 15px;
+}
+
+#reviewForm button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.success-message {
+    color: var(--success);
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* =========================================
+   OLD DECORATIVE WALL NOTES
+========================================= */
+
+.wall-preview {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.wall-note {
+    width: 180px;
+    min-height: 150px;
+    padding: 25px;
+    color: #292337;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px #0004;
+    transition: transform 0.3s;
+}
+
+.wall-note:hover {
+    transform: rotate(0deg) scale(1.08);
+}
+
+.wall-note.pink {
+    background: #ff9ccf;
+}
+
+.wall-note.yellow {
+    background: #ffe783;
+}
+
+.wall-note.blue {
+    background: #8be4f8;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    text-align: center;
+    padding: 45px 20px;
+    background: #0b0d1b;
+    color: var(--muted);
+    line-height: 2;
+}
+
+footer h3 {
+    color: white;
+    font-size: 22px;
+}
+
+/* =========================================
+   TABLET RESPONSIVE
+========================================= */
+
+@media (max-width: 1000px) {
+    .hero {
+        padding: 75px 7%;
+    }
+
+    .review-wall {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+    }
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 18px 5%;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero {
+        padding: 60px 7%;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hero-content {
+        flex: 1 1 100%;
+    }
+
+    .hero-buttons,
+    .counter {
+        justify-content: center;
+    }
+
+    .notes-area {
+        width: 100%;
+        height: 350px;
+    }
+
+    .sticky-note {
+        width: 145px;
+        min-height: 125px;
+        font-size: 14px;
+    }
+
+    .about,
+    .submit-section,
+    .wall-section {
+        padding: 65px 5%;
+    }
+
+    .review-wall {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+        padding: 5px;
+    }
+
+    .review-card {
+        max-width: none;
+        min-height: 180px;
+        padding: 18px 12px;
+    }
+
+    #reviewForm {
+        padding: 24px 18px;
+    }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+    .logo {
+        font-size: 20px;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .review-wall {
+        grid-template-columns: 1fr;
+    }
+
+    .review-card {
+        max-width: 280px;
+        width: 100%;
+    }
+
+    .colour-options {
+        gap: 10px;
+    }
+
+    .colour {
+        padding: 9px 12px;
+        font-size: 13px;
+    }
+}
+
+/* =========================================
+   LARGE SCREENS / PLASMA TV
+========================================= */
+
+@media (min-width: 1400px) {
+    .review-wall {
+        max-width: 1500px;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 35px;
+    }
+
+    .review-card {
+        max-width: 270px;
+        min-height: 230px;
+        padding: 28px;
+    }
+
+    .review-card p {
+        font-size: 17px;
+    }
+}
