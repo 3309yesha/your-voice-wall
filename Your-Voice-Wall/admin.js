@@ -224,9 +224,53 @@ function displayReviews(reviews) {
             actions.appendChild(rejectButton);
         }
 
+        // Permanent Delete button
+        const deleteButton = document.createElement("button");
+        deleteButton.className = "delete-button";
+        deleteButton.textContent = "🗑 Delete";
+
+        deleteButton.addEventListener("click", () => {
+            deleteReview(review.id);
+        });
+
+        actions.appendChild(deleteButton);
+
         card.appendChild(actions);
         reviewList.appendChild(card);
     });
+}
+
+async function deleteReview(id) {
+    if (!isAdmin) return;
+
+    const confirmDelete = confirm(
+        "Are you sure you want to permanently delete this review? This cannot be undone."
+    );
+
+    if (!confirmDelete) return;
+
+    showDashboardMessage("Deleting review...");
+
+    const { data, error } = await supabaseClient
+        .from("reviews")
+        .delete()
+        .eq("id", id)
+        .select("id");
+
+    if (error) {
+        console.error("Delete error:", error);
+        showDashboardMessage("Delete failed: " + error.message);
+        return;
+    }
+
+    if (!data || data.length === 0) {
+        showDashboardMessage("Review was not deleted. Check permissions.");
+        return;
+    }
+
+    showDashboardMessage("Review permanently deleted successfully!");
+
+    await loadReviews();
 }
 
 // Update review status
@@ -235,21 +279,32 @@ async function updateReviewStatus(id, newStatus) {
 
     showDashboardMessage("Updating review...");
 
-    const { error } = await supabaseClient
+    const { data, error } = await supabaseClient
         .from("reviews")
         .update({ status: newStatus })
-        .eq("id", id);
+        .eq("id", id)
+        .select("id, status");
 
     if (error) {
+        console.error("Review update error:", error);
+        showDashboardMessage("Update failed: " + error.message);
+        return;
+    }
+
+    if (!data || data.length === 0) {
         showDashboardMessage(
-            "Update failed: " + error.message
+            "No review was updated. Check database permissions."
         );
         return;
     }
 
-    showDashboardMessage("Review updated successfully!");
+    showDashboardMessage(
+        `Review successfully marked as ${newStatus}!`
+    );
+
     await loadReviews();
 }
+
 
 // Filter reviews
 document.querySelectorAll("[data-filter]").forEach(button => {
