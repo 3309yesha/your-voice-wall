@@ -243,11 +243,6 @@ function displayReviews(reviews) {
 async function deleteReview(id) {
     if (!isAdmin) return;
 
-    const confirmDelete = confirm(
-        "Are you sure you want to permanently delete this review? This cannot be undone."
-    );
-
-    if (!confirmDelete) return;
 
     showDashboardMessage("Deleting review...");
 
